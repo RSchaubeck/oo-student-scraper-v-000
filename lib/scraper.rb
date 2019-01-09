@@ -33,7 +33,7 @@ class Scraper
         profile[:linkedin] = href
       when href.include?('github')
         profile[:github] = href
-      when href.include?('blog')
+      else
         profile[:blog] = href
       end
     end
