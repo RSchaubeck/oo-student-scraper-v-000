@@ -23,6 +23,7 @@ class Scraper
     profile = {}
     profile[:profile_quote] = profileDoc.css('.profile-quote')
     profile[:bio] = profileDoc.css('.desciption-holder p').text
+    profile
 
   end
 
