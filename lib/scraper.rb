@@ -24,8 +24,20 @@ class Scraper
     profile = {}
     profile[:profile_quote] = profileDoc.css('.profile-quote').text
     profile[:bio] = profileDoc.css('.description-holder p').text
+    profileDoc.css('.social-icon-container a').each do |link|
+      href = link.attribute('href').value
+      case
+      when href.include?('twitter')
+        profile[:twitter] = href
+      when href.include?('linkedin')
+        profile[:linkedin] = href
+      when href.include?('github')
+        profile[:github] = href
+      when href.include?('blog')
+        profile[:blog] = href
+      end
+    end
     profile
-
   end
 
 end
